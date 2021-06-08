@@ -3,6 +3,7 @@
       HTML and Handlebars
      ------------------------>
 {{# if products }}
+    <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
             <h1 class="big-title">The Big Collection</h1>
@@ -36,8 +37,10 @@
             </form>
         </div>
     </div>
+    </div>
     <hr class="finalHR">
 {{ else }}
+    <div class="container">
     <div id="noFooter" class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
             <h2 class="big-title">No reviews in the collection!</h2>
@@ -51,6 +54,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 {{/if}}
 
