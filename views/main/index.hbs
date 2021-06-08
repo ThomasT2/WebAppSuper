@@ -12,11 +12,12 @@
                     <h5 class="card-title" id="title">{{ this.title }}</h5>
                     <p class="card-text">{{ this.description }}</p>
                     <p class="rating-text"><button class="dotReview"> {{ this.rating }} </button></p>
+                    <hr>
                     <a href="/add-to-collection/{{this._id}}" class="btn btn-primary" id="add-collection">Add to Collection</a>
                 </div>
             </div>
         {{/each}}
     </div>
     </div>
-    <hr class="finalHR">
 {{/each}}
+<hr class="finalHR">
