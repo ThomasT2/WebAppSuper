@@ -1,33 +1,85 @@
-/*
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+/* ---------------
+       FONTS
+   --------------- */
+
+@font-face {
+  font-family: "Lato Regular";
+  src: url(../fonts/lato/Lato-Regular.ttf);
 }
 
-a {
-  color: #00B7FF;
+@font-face {
+  font-family: "Lato Thin";
+  src: url(../fonts/lato/Lato-Thin.ttf);
 }
 
-.thumbnail img {
-  max-height: 150px;
+@font-face {
+  font-family: "Lato Bold";
+  src: url(../fonts/lato/Lato-Bold.ttf);
 }
 
-.thumbnail .description {
-  color: #7f7f7f;
+@font-face {
+  font-family: "Raleway Regular";
+  src: url(../fonts/raleway/Raleway-Regular.ttf);
 }
-*/
+
+@font-face {
+  font-family: "Oswald";
+  src: url(../fonts/oswald/static/Oswald-Regular.ttf)
+}
+
+@font-face {
+  font-family: "Oswald Light";
+  src: url(../fonts/oswald/static/Oswald-Light.ttf)
+}
+
+/* ---------------
+    Header view
+   --------------- */
+
+#headerMain {
+  background-color: black;
+}
+
+.navbar-brand {
+  color: ghostwhite;
+  font-family: "Raleway Regular", sans-serif;
+}
+
+.nav-link {
+  color: ghostwhite;
+}
+
+.dropdown-menu a:hover {
+  background-color: blue;
+  color: #fff;
+}
+
+/* ---------------
+   INDEX main view
+   --------------- */
 
 body {
   counter-reset: my-sec-counter;
+  background-color: #f3ce13;
 }
 
-#selectionNumber {
-  margin-bottom: -10px;
+.hyperlink {
+  color: ghostwhite;
+  font-family: "Oswald", sans-serif;
+  font-weight: normal;
 }
 
-#selectionNumber:before {
-  counter-increment: my-sec-counter;
-  content: "Selection number " counter(my-sec-counter);
+.bold {
+  font-weight: bold;
+  font-family: "Raleway Regular", sans-serif;
+  color: black;
+}
+
+#title {
+  font-family: "Raleway Regular", sans-serif;
+  color: black;
+  font-weight: bold;
 }
 
 .container {
@@ -37,10 +89,6 @@ body {
 .card img {
   max-height: 350px;
   max-width: 300px;
-}
-
-.thumbnail .card-text{
-  color: #7f7f7f;
 }
 
 .card {
@@ -54,16 +102,35 @@ body {
   margin: 0 0 0 40px;
 }
 
-#add-c {
+.card:hover {
+  transform: translateY(20px);
+  background-color: floralwhite;
+}
+
+.card-text {
+  font-family: "Raleway Regular", sans-serif;
+  font-style: normal;
+  color: black;
+}
+
+.rating-text {
+  font-family: "Oswald";
+  font-style: normal;
+  color: black;
+}
+
+#add-collection {
   margin: 10px 0 0 0;
   padding: 12px 8px 12px 8px;
   border: none;
   background-color: cornflowerblue;
   color:white;
+  font-weight: bold;
   transition: 0.3s;
+  font-family: "Raleway Regular", sans-serif;
 }
 
-#add-c:hover {
+#add-collection:hover {
   background-color: blue;
 }
 
@@ -85,6 +152,27 @@ body {
   outline: none;
 }
 
+.spaceBar {
+  border: 2px solid;
+  border-radius: 4px;
+}
+
+/* ---------------
+   Collection view
+   --------------- */
+
+.big-title {
+  font-family: "Raleway Regular", sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+.normal-text {
+  font-family: "Raleway Regular", sans-serif;
+  color: black;
+  font-style: normal;
+}
+
 .list-group-item {
   position: relative;
   display: block;
@@ -95,20 +183,14 @@ body {
   transition: 0.5s ease-in-out;
 }
 
-#profileBlocks:hover {
-  transform: translateX(10px);
-}
-
-.card:hover {
-  transform: translateY(20px);
-}
-
 #actionButton {
   border: none;
   padding: 8px 16px;
   background-color: cornflowerblue;
   color:white;
   transition: 0.3s;
+  font-family: "Raleway Regular", sans-serif;
+  font-weight: bold;
 }
 
 #actionButton:hover {
@@ -131,6 +213,7 @@ body {
   color: black;
   transition: 0.1s;
   white-space: nowrap;
+  font-family: "Lato Regular";
 }
 
 .dropdown-menu li {
@@ -147,7 +230,7 @@ body {
   color: #fff;
 }
 
-#add-p {
+#add-profile {
   border: none;
   color: white;
   padding: 15px 25px 15px 25px;
@@ -157,42 +240,15 @@ body {
   border-radius: 8px;
 }
 
-.spaceProfile {
-  border: 2px solid;
-  border-radius: 4px;
-}
-
-.panel {
-  margin: 30px 0 30px 0;
-}
-
-#textProfile {
-  text-align: left;
-  position: center;
-  padding-left: 150px;
-}
-
 #quantity {
   display: inline;
-}
-
-.column {
-  position: center;
-  float: left;
-  width: 33.33%;
-  padding: 0 20px 40px 0;
-}
-
-.profileRow {
-  box-sizing: border-box;
+  font-family: "Raleway Regular", sans-serif;
+  font-style: italic;
+  color: black;
 }
 
 .noRow {
   box-sizing: border-box;
-}
-
-.profileIMG {
-  width: 100%;
 }
 
 #noFooter {
@@ -206,9 +262,110 @@ body {
   padding: 0 20px 0 0;
 }
 
+/* ---------------
+     Profile view
+   --------------- */
+
+#selectionNumber {
+  margin-bottom: -10px;
+  font-family: "Raleway Regular", sans-serif;
+  color: black;
+  font-style: normal;
+}
+
+#selectionNumber:before {
+  counter-increment: my-sec-counter;
+  content: "Selection number " counter(my-sec-counter);
+}
+#profileBlocks {
+  padding: 16px 0 16px 0;
+  width: 100%;
+}
+
+#profileBlocks:hover {
+  transform: translateX(10px);
+  background-color: antiquewhite;
+}
+
+.panel {
+  margin: 30px 0 30px 0;
+}
+
+#textProfile {
+  font-family: "Oswald", sans-serif;
+  color: black;
+  font-style: normal;
+  text-align: center;
+  position: center;
+  padding: 0 0 0 110px;
+}
+
+#textProfile2 {
+  font-family: "Raleway Regular", sans-serif;
+  font-size: 22px;
+  color: black;
+  text-align: center;
+  position: center;
+  padding: 0 0 0 110px;
+}
+
+.profileRow {
+  box-sizing: border-box;
+}
+
+.column {
+  position: center;
+  float: left;
+  width: 33.33%;
+  padding: 0 20px 40px 0;
+}
+
+.profileIMG {
+  width: 230px;
+  height: 170px;
+  padding: 0 3px 0 3px;
+}
+
+.panel-footer {
+  padding-bottom: 40px;
+}
+
 .finalHR {
   margin-bottom: 25px;
 }
+
+/* ---------------
+    Register view
+   --------------- */
+
+.form-group {
+  width: 275px;
+}
+
+.register-aid {
+  padding-top: 10px;
+  padding-bottom: 170px;
+  font-family: "Raleway Regular", sans-serif;
+  font-style: normal;
+  color: black;
+}
+
+#log-online {
+  padding: 8px 14px 8px 14px;
+  border: none;
+  background-color: cornflowerblue;
+  color:white;
+  transition: 0.3s;
+  font-family: "Raleway Regular", sans-serif;
+  font-weight: bold;
+}
+#log-online:hover {
+  background-color: blue;
+}
+
+/* ---------------
+    Footer view
+   --------------- */
 
 .footer-items {
   padding: 5px 0 5px 0;
@@ -217,9 +374,6 @@ body {
 /* ---------------
       HELP view
    --------------- */
-
-/* Some code for image zooming borrowed from here:
-   https://thatwebdude.com/tutorial/css-image-zooming-grid/ */
 
 #grid-container {
   width: 80%;
@@ -230,7 +384,7 @@ body {
 .grid-element {
   position: relative;
   overflow: hidden;
-  border: 10pt solid white;
+  border: 10pt solid #f3ce13;
   height: 100pt;
   -webkit-transition: all .5s ease;   /* Safari and Chrome */
   -moz-transition: all .5s ease;      /* Firefox */
@@ -268,19 +422,6 @@ body {
   border-bottom: 5px solid rgba(255, 255, 255, .3);
 }
 
-.grid-element-expand-indicator {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  display: block;
-  color: #F4F7F5;
-  margin-top: 63.5pt;
-  margin-left: 45%;
-}
-
 .grid-element-expanded-info {
   position: absolute;
   text-align: center;
@@ -314,22 +455,9 @@ body {
   cursor: initial;
 }
 
-.grid-icon {
-  width: 24px;
-  height: 24px;
-}
-
 .grid-icon-info-container {
   text-align: center;
   width: 100%;
-}
-
-.grid-icon-info {
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 24px;
-  height: 24px;
 }
 
 .grid-icon-info-container p {
@@ -339,82 +467,73 @@ body {
   margin: -7pt 0 0 0 ;
 }
 
-#help-text {
-  color: #FFFFFF;
-  font-family: Raleway Regular, sans-serif;
-  text-align: center;
-  margin-top: 2%;
-  font-size: 10pt;;
-}
-
-#help {
-  background-color: #3BB2E2;
-  opacity: 80%;
-}
-
-#help:hover {
-  background-color: #3BB2E2;
-  opacity: 100%;
-}
-
-.detailed-view-button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.helpinfo {
-  color: #F4F7F5;
-  text-align: center;
-}
-
-#header-help {
-  color: #F4F7F5;
-  text-align: center;
-}
-
-#ssf-container-help {
-  width: 80%;
-  border: 9pt solid #F4F7F5;
-}
-
-.ssf-element-help {
-  margin-top: 15pt;
-  background-color: #333333;
-  border-radius: 4px;
-  border: 1pt solid #F4F7F5;
-}
-
-#use-page {
-  height: auto;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-#recommend-text {
-  list-style-position: inside;
-  text-align: center;
-  color: #F4F7F5;
-}
-
 #items {
   font-family: "Lato Regular", sans-serif;
   font-size: small;
   color: black;
 }
 
-#items-button {
-  font-family: "Lato Regular", sans-serif;
-  font-size: small;
-  text-align: center;
-  color: black;
+#sci {
+  background-color: #3BB2E2;
+  opacity: 100%;
 }
 
-#help-text {
-  color: #FFFFFF;
-  font-family: Raleway Regular, sans-serif;
-  text-align: center;
-  margin-top: 2%;
-  font-size: 10pt;;
+#sci:hover {
+  background-color: #3BB2E2;
+  opacity: 75%;
+}
+#ign {
+  background-color: indianred;
+  opacity: 100%;
+}
+
+#ign:hover {
+  background-color: indianred;
+  opacity: 75%;
+}
+#holly {
+  background-color: lawngreen;
+  opacity: 100%;
+}
+
+#holly:hover {
+  background-color: lawngreen;
+  opacity: 75%;
+}
+#film {
+  background-color: mediumpurple;
+  opacity: 100%;
+}
+
+#film:hover {
+  background-color: mediumpurple;
+  opacity: 75%;
+}
+#clevver {
+  background-color: indianred;;
+  opacity: 100%;
+}
+
+#clevver:hover {
+  background-color: indianred;
+  opacity: 75%;
+}
+#nerds {
+  background-color: #3BB2E2;
+  opacity: 100%;
+}
+
+#nerds:hover {
+  background-color: #3BB2E2;
+  opacity: 75%;
+}
+#fast {
+  background-color: darkkhaki;
+  opacity: 100%;
+}
+
+#fast:hover {
+  background-color: darkkhaki;
+  opacity: 75%;
 }
 

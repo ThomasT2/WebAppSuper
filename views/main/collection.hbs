@@ -1,21 +1,25 @@
+<!-----------------------
+      Collection view -
+      HTML and Handlebars
+     ------------------------>
 {{# if products }}
     <div class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-            <h1>The Big Collection</h1>
+            <h1 class="big-title">The Big Collection</h1>
             <ul class="list-group">
                 {{# each products }}
                 <li class="list-group-item">
                     <img id="bigPoster" class="card-img-top" src="{{ this.imagePath }}" alt="Big movie poster">
-                    <h4><strong>{{ this.review.title }}</strong></h4>
-                    <p id="review">{{ this.description }}</p>
-                    <p><button class="dotReview">{{ this.rating }}</button></p>
+                    <h4 class="bold">{{ this.review.title }}</h4>
+                    <p class="card-text" id="review">{{ this.description }}</p>
+                    <p class="rating-text"><button class="dotReview">{{ this.rating }}</button></p>
                     <u><p id="quantity">Total quantity:</u><strong> {{ this.quantity }} </strong></p>
                     <hr>
                     <div class="btn-group">
-                        <button class="btn btn-primary btn-xs dropdown-toggle" id="actionButton" type="button" data-toggle="dropdown">Action<span class="caret"></span></button>
+                        <button class="btn btn-primary btn-xs dropdown-toggle bold" id="actionButton" type="button" data-toggle="dropdown">Actions <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li><a id="buttonDownload" href="#/">Download the Review</a></li>
-                            <li><a id="reduce" href="/reduce/{{this.review._id}}">Reduce the number of Reviews</a></li>
+                            <li><a id="buttonDownload" href="#/">Download the review</a></li>
+                            <li><a id="reduce" href="/reduce/{{this.review._id}}">Reduce the number of reviews</a></li>
                             <li><a id="remove" href="/remove/{{this.review._id}}">Remove all reviews from the Collection</a></li>
                         </ul>
                     </div>
@@ -27,7 +31,7 @@
             <form action="/main/collection" method="post">
                 <div class="btn-group">
                     <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                    <button id="add-p" type="submit" class="btn btn-success">Add to Profile</button>
+                    <button id="add-profile" type="submit" class="btn btn-success bold">Add to Profile</button>
                 </div>
             </form>
         </div>
@@ -36,14 +40,14 @@
 {{ else }}
     <div id="noFooter" class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-            <h2>No reviews in the collection!</h2>
-            <p>But do not let that stop you. Here are some tips on how to get you started with your new amazing collection:</p>
+            <h2 class="big-title">No reviews in the collection!</h2>
+            <p class="normal-text">But do not let that stop you. Here are some tips on how to get you started with your new amazing collection:</p>
             <div class="noRow">
                 <div class="column-empty">
-                    <img class="profileIMG" src="https://freerangestock.com/sample/119791/cinema-movie-.jpg">
+                    <a href="/"><img class="profileIMG" src="../images/do-know.png"></a>
                 </div>
                 <div class="column-empty">
-                    <img class="profileIMG" src="https://freerangestock.com/sample/119791/cinema-movie-.jpg">
+                    <a href="/main/help"><img class="profileIMG" src="../images/donot-know.png"></a>
                 </div>
             </div>
         </div>

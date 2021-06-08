@@ -1,9 +1,12 @@
-
+<!-----------------------
+      Profile view -
+      HTML and Handlebars
+     ------------------------>
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <h1>User profile</h1>
-        <hr class="spaceProfile">
-        <p>
+        <h1 class="big-title">User profile</h1>
+        <hr class="spaceBar">
+        <p class="normal-text">
             Curabitur pharetra mi a ex pulvinar, ac finibus augue varius. In et consectetur tortor. Ut id felis sed mauris hendrerit viverra sed ac lacus. Vestibulum dictum quis orci ut sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
             Nunc ornare mi id dolor efficitur, eu tempor ante laoreet. Mauris gravida dignissim ex. Pellentesque tincidunt enim euismod accumsan consectetur. In a sapien feugiat,
             fermentum metus sed, hendrerit elit. Pellentesque maximus nec nunc pulvinar elementum. Curabitur blandit porttitor cursus. Vestibulum dapibus lectus metus. Sed eget elit
@@ -12,17 +15,17 @@
         <br>
         <div class="profileRow">
         <div class="column">
-            <img class="profileIMG" src="https://freerangestock.com/sample/119791/cinema-movie-.jpg">
+            <img class="profileIMG" src="../images/director.png">
         </div>
         <div class="column">
-            <img class="profileIMG" src="https://freerangestock.com/sample/119791/cinema-movie-.jpg">
+            <img class="profileIMG" src="../images/rating.png">
         </div>
         <div class="column">
-            <img class="profileIMG" src="https://freerangestock.com/sample/119791/cinema-movie-.jpg">
+            <img class="profileIMG" src="../images/funmovie.png">
         </div>
         </div>
-        <h2>My Review Selections!</h2>
-        <hr class="spaceProfile">
+        <h2 class="big-title">My Review Selections!</h2>
+        <hr class="spaceBar">
         {{# each selections }}
             <div class="panel panel-default">
                 <u><h6 id="selectionNumber"> from the Collection:</h6></u>
@@ -30,16 +33,16 @@
                     <ul class="list-group">
                         {{# each this.reviews }}
                             <li class="list-group-item" id="profileBlocks">
-                                <span>You have {{ this.quantity }} review(s) of this film. </span><span id="textProfile"><strong>{{ this.review.title }}</strong> | {{ this.rating }}/10</span>
+                                <span id="textProfile">You have {{ this.quantity }} review(s) of this film. </span><span id="textProfile2"><strong>{{ this.review.title }}</strong> | {{ this.rating }} stars</span>
                             </li>
                         {{/each}}
                     </ul>
                 </div>
             </div>
-            <hr class="spaceProfile">
+            <hr class="spaceBar">
         {{/each}}
         <div class="panel-footer">
-            <h4>Keep adding more selections to your profile!</h4>
+            <h4 class="big-title">Keep adding more selections to your profile!</h4>
         </div>
     </div>
 </div>
