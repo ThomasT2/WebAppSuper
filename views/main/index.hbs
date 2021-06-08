@@ -1,0 +1,19 @@
+
+{{# each products }}
+    <div class="container">
+    <div class="row">
+        {{# each this }}
+            <div class="card">
+                <img class="card-img-top" src="{{ this.imagePath }}" alt="Movie Poster card image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ this.title }}</h5>
+                    <p class="card-text">{{ this.description }}</p>
+                    <p><button class="dotReview"> {{ this.rating }} </button></p>
+                    <a href="/add-to-collection/{{this._id}}" class="btn btn-primary" id="add-c">Add to Collection</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    </div>
+    <hr class="finalHR">
+{{/each}}
