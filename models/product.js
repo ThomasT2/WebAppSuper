@@ -1,3 +1,9 @@
+/**
+ * The blueprint for the items in the database.
+ * The schema defines the attributes of the product,
+ * a review in this case.
+ */
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 

@@ -1,5 +1,7 @@
 /**
- *
+ * Authentication middleware. The Strategy is
+ * essential for the utilization of the
+ * authentication.
  */
 
 var passport = require('passport');
@@ -10,12 +12,14 @@ passport.serializeUser(function (user, done){
     done(null, user.id);
 });
 
+// Store the user
 passport.deserializeUser(function (id, done){
     User.findById(id, function (err,user){
         done(err, user);
     });
 });
 
+// Strategy for handling errors and check if we have users
 passport.use('local.signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -32,6 +36,7 @@ passport.use('local.signup', new LocalStrategy({
         return done(null, false, req.flash('error', messages));
     }
 
+    // Check if the email is in use already.
     User.findOne({'email': email}, function (err, user){
         if(err) {
             return done(err);
@@ -51,6 +56,7 @@ passport.use('local.signup', new LocalStrategy({
     });
 }));
 
+// Strategy for handling errors and check if we have users
 passport.use('local.signin', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -66,6 +72,7 @@ passport.use('local.signin', new LocalStrategy({
         });
         return done(null, false, req.flash('error', messages));
     }
+    //Check if the password is wrong and if the user exist.
     User.findOne({'email': email}, function (err, user){
         if(err) {
             return done(err);

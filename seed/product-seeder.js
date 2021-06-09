@@ -1,5 +1,11 @@
-var Product = require('../models/product');
 
+/**
+ * This file contains the relevant information
+ * and definitions for the reviews. The array of
+ * the products will be seeded to the database.
+ */
+
+var Product = require('../models/product');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/reviews');
 
@@ -110,6 +116,7 @@ var products = [
 ];
 
 var done =0;
+//Loop through all the reviews and save them to the database. Exit when all products have been looped through.
 for (var i = 0; i < products.length; i++){
     products[i].save(function (err,results){
         done++;

@@ -1,3 +1,9 @@
+/**
+ * This file has all the routes of the
+ * application. Both get and post methods
+ * are defined for the different parts.
+ */
+
 var express = require('express');
 var router = express.Router();
 var csrf = require('csurf');
@@ -6,10 +12,11 @@ var Collection = require('../models/collection');
 var Product = require('../models/product');
 var Selection = require('../models/user-selection');
 
+// Unique value for protection
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
-/* GET home page. */
+/* GET the main home page */
 router.get('/', function(req, res, next) {
     Product.find(function (err, docs){
         var productBlocks = [];
@@ -40,6 +47,7 @@ router.get('/add-to-collection/:id', function (req,res,next){
     });
 });
 
+// Remove one review by reducing it.
 router.get('/reduce/:id', function (req,res,next){
     var reviewId = req.params.id;
     var portfolio = new Collection(req.session.portfolio ? req.session.portfolio : {});
@@ -49,6 +57,7 @@ router.get('/reduce/:id', function (req,res,next){
     res.redirect('/main/collection');
 });
 
+// Remove all the reviews in the collection.
 router.get('/remove/:id', function (req,res,next){
     var reviewId = req.params.id;
     var portfolio = new Collection(req.session.portfolio ? req.session.portfolio : {});
@@ -132,12 +141,14 @@ router.post('/user/signin', passport.authenticate('local.signin', {
 
 module.exports = router;
 
+// Check if user is logged in.
 function isUserLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
     res.redirect('/');
 }
+// Checck if user is not logged in.
 function isUserNotLoggedIn(req, res, next) {
     if (!req.isAuthenticated()) {
         return next();
@@ -145,6 +156,7 @@ function isUserNotLoggedIn(req, res, next) {
     res.redirect('/');
 
 }
+// The user will be directed to the log in if they try to access the collection as non-logged in.
 function isUserLoggedInCollection(req, res, next) {
     if (req.isAuthenticated()) {
         return next();

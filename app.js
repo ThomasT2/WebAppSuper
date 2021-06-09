@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressHbs = require('express-handlebars');
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'); // Node js MongoDb package
 var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
@@ -19,7 +19,7 @@ var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access
 var indexRouter = require('./routes/index');
 var app = express();
 
-// Connection to the Mongo Database
+// Connection to the Mongo Database server
 mongoose.connect('mongodb://localhost:27017/reviews');
 require('./config/passport');
 

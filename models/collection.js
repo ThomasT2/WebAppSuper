@@ -1,9 +1,16 @@
 
+/**
+ * This function handles the number of reviews
+ * and their quantities. The reviews are added to
+ * the collection with all their essential parts.
+ */
+
 module.exports = function Collection(oldCollection){
 
     this.reviews = oldCollection.reviews || {};
     this.totalQuantity = oldCollection.totalQuantity || 0;
 
+    // Add the attributes of the review, including quantity.
     this.add = function (review, id) {
         var storedReview = this.reviews[id];
         if(!storedReview){
@@ -17,6 +24,7 @@ module.exports = function Collection(oldCollection){
 
     };
 
+    // Reduce one review at a time
     this.reduceOneReview = function (id){
         this.reviews[id].quantity--;
         this.totalQuantity--;
@@ -26,11 +34,13 @@ module.exports = function Collection(oldCollection){
         }
     }
 
+    // Remove all the reviews
     this.removeReview = function (id){
         this.totalQuantity -= this.reviews[id].quantity;
         delete this.reviews[id];
     };
 
+    // Loop through the array of reviews
     this.generateArray = function (){
         var array = [];
         for(var id in this.reviews){
