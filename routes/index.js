@@ -148,7 +148,7 @@ function isUserLoggedIn(req, res, next) {
     }
     res.redirect('/');
 }
-// Checck if user is not logged in.
+// Check if user is not logged in.
 function isUserNotLoggedIn(req, res, next) {
     if (!req.isAuthenticated()) {
         return next();
