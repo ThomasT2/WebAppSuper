@@ -28,6 +28,7 @@
     <ul class="normal-text">
         <li>Remember to be respectful and share your reviews with friends</li>
         <li>Have fun when using our application! Yaaay!</li>
+        <li id="clock"></li>
     </ul>
     <hr class="spaceProfile">
 </div>
@@ -237,4 +238,12 @@
             }
         });
     }
+
+    setInterval(myTimer, 1000);
+
+    function myTimer() {
+        const date = new Date();
+        document.getElementById("clock").innerHTML = date.toLocaleTimeString();
+    }
+
 </script>

@@ -361,6 +361,7 @@ body {
 }
 #log-online:hover {
   background-color: blue;
+  transition-delay: 200ms;
 }
 
 /* ---------------
